@@ -356,6 +356,22 @@ a:focus-visible, button:focus-visible{
   max-width: 62ch;
 }
 
+.allergens{
+  display: inline-block;
+  margin-top: 5px;
+  font-size: .74rem;
+  letter-spacing: .02em;
+  color: var(--gold, #a3814a);
+  background: rgba(198,161,91,.14);
+  border: 1px solid rgba(198,161,91,.35);
+  border-radius: 999px;
+  padding: .12rem .55rem;
+  cursor: help;
+}
+.dish:hover .allergens{
+  background: rgba(198,161,91,.24);
+}
+
 /* build-your-own pasta module */
 .builder{
   background: var(--cream);
@@ -446,12 +462,65 @@ a:focus-visible, button:focus-visible{
   color: var(--gold-bright);
 }
 
+.allergen-legend{
+  max-width: 720px;
+  margin: 36px auto 0;
+  padding: 26px 20px 10px;
+  border-top: 1px solid var(--line);
+}
+.allergen-legend h3{
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.allergen-legend > p{
+  text-align: center;
+  color: var(--text-soft);
+  font-size: .88rem;
+  max-width: 52ch;
+  margin: 0 auto 16px;
+}
+.legend-list{
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 20px;
+  max-width: 520px;
+  margin-inline: auto;
+}
+@media (min-width: 560px){
+  .legend-list{ grid-template-columns: repeat(3, 1fr); }
+}
+.legend-list li{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .85rem;
+  color: var(--text);
+}
+.legend-list span{
+  flex: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .78rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .menu-footnote{
   text-align:center;
   color: var(--text-soft);
   font-size: .85rem;
   font-style: italic;
-  padding: 30px 20px 10px;
+  padding: 20px 20px 10px;
 }
 
 /* =========================================================
