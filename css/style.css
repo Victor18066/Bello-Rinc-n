@@ -1,6 +1,13 @@
 /* =========================================================
    Bello Rincón — Bar · Cafetería · Tapería · Pizzeria
-   ========================================================= */
+   ========================================================= */ 
+
+@font-face {
+  font-family: "Seramonde Trial";
+  src: url("../fonts/Seramonde Trial.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
 
 :root{
   --ink: #15130f;
@@ -211,11 +218,12 @@ a:focus-visible, button:focus-visible{
 
 .hero-tag{
   color: #e7ddc4;
-  font-size: 1.05rem;
+  font-size: 1.6rem;
   max-width: 40ch;
   margin: 0 auto;
   opacity: 0;
   animation: hero-fade-in .7s ease-out 1.15s forwards;
+  font-family: "Seramonde Trial", var(--font-body);
 }
 
 .hero-actions{
