@@ -315,7 +315,7 @@
             ["Tequeños", ""],
             ["Jalapeños", "6 pieces."],
             ["Provolone with homemade bread", ""],
-            ["Truffle provolone with homemade bread", ""],
+            ["Truffle provolone with bread", ""],
             ["Squid", ""],
             ["Breaded prawns", ""],
             ["Pork ears with parsley sauce", ""],
