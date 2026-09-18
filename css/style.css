@@ -692,3 +692,37 @@ a:focus-visible, button:focus-visible{
   }
   .dish{ break-inside: avoid; }
 }
+
+/* =====================================================
+   SELECTOR DE IDIOMA
+   ===================================================== */
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.lang-btn {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 2px;
+  cursor: pointer;
+  opacity: 0.55;
+}
+
+.lang-btn.active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.language-switch > span {
+  opacity: 0.4;
+}
