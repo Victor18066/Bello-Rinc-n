@@ -5,10 +5,12 @@
   // FOOTER YEAR
   // ============================================================
 
-  var yearEl = document.getElementById("year");
+  function updateYear() {
+    var yearEl = document.getElementById("year");
 
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
   }
 
 
@@ -35,7 +37,8 @@
       heroTag:
         "Nacemos en Benetússer con el objetivo de convertirnos en el punto de encuentro de familias, amigos y amantes del buen comer. Creemos que una pizza, una comida, unas tapas o unos buenos bocatas, no solo se cocinan, se comparten. Por eso, en nuestro local cada detalle está pensado para que te sientas como en casa, ya sea disfrutando de un almuerzo, de una comida, de un tardeo con amigos o una cena familiar o con amigos cualquier día de la semana, o recogiendo tu pedido recién salido del horno para disfrutarlo en casa. Contamos con una magnífica y tranquila terraza en la calle. Sobre todo te ofrecemos cercanía y buen ambiente, además de buenos y ricos llantares que disfrutar en tus mejores momentos. Seguro que volverás.",
 
-      heroLogoAlt: "Bello Rincón — Bar, Cafetería, Tapería, Pizzeria",
+      heroLogoAlt:
+        "Bello Rincón — Bar, Cafetería, Tapería, Pizzeria",
 
       buttons: {
         call: "Llamar",
@@ -46,6 +49,7 @@
       },
 
       introTitle: "La carta",
+
       introText:
         "Todo lo que preparamos, en un solo sitio: desde una tapa rápida hasta una pizza para compartir. Toca una categoría arriba para ir directo a lo que te apetece.",
 
@@ -228,7 +232,7 @@
         ]
       },
 
-      allergenLegend: {
+      allergens: {
         title: "Alérgenos",
         intro: "Los números junto a cada plato indican los alérgenos que contiene, según la información de nuestra carta:",
         items: [
@@ -260,14 +264,13 @@
         afternoons: "Tardes"
       },
 
-      footer: "Bar · Cafetería · Tapería · Pizzeria",
-      rights: "Todos los derechos reservados."
+      footer:
+        "Bar · Cafetería · Tapería · Pizzeria",
+
+      rights:
+        "Todos los derechos reservados."
     },
 
-
-    // ==========================================================
-    // ENGLISH
-    // ==========================================================
 
     en: {
       nav: [
@@ -287,7 +290,8 @@
       heroTag:
         "We opened in Benetússer with the aim of becoming a meeting place for families, friends and lovers of good food. We believe that a pizza, a meal, some tapas or a good sandwich are not only cooked, they are meant to be shared. That is why every detail of our restaurant is designed to make you feel at home, whether you are enjoying a late breakfast, lunch, an afternoon with friends, a family dinner or a dinner with friends any day of the week, or picking up your freshly baked order to enjoy at home. We also have a wonderful and peaceful outdoor terrace. Above all, we offer a friendly atmosphere and delicious food to enjoy during your best moments. We are sure you will come back.",
 
-      heroLogoAlt: "Bello Rincón — Bar, Café, Tapas & Pizzeria",
+      heroLogoAlt:
+        "Bello Rincón — Bar, Café, Tapas & Pizzeria",
 
       buttons: {
         call: "Call",
@@ -298,6 +302,7 @@
       },
 
       introTitle: "Our menu",
+
       introText:
         "Everything we prepare, all in one place: from a quick tapa to a pizza to share. Tap a category above to go straight to what you fancy.",
 
@@ -480,7 +485,7 @@
         ]
       },
 
-      allergenLegend: {
+      allergens: {
         title: "Allergens",
         intro: "The numbers next to each dish indicate the allergens it contains, according to the information on our menu:",
         items: [
@@ -512,70 +517,22 @@
         afternoons: "Evenings"
       },
 
-      footer: "Bar · Café · Tapas · Pizzeria",
-      rights: "All rights reserved."
+      footer:
+        "Bar · Café · Tapas · Pizzeria",
+
+      rights:
+        "All rights reserved."
     }
   };
 
 
   // ============================================================
-  // ALLERGEN NAMES
-  // ============================================================
-
-  var allergenNames = {
-    es: translations.es.allergenLegend.items,
-    en: translations.en.allergenLegend.items
-  };
-
-
-  // ============================================================
-  // TRANSLATE MENU DISHES
-  // ============================================================
-
-  function translateSection(sectionId, sectionData) {
-    var section = document.getElementById(sectionId);
-
-    if (!section || !sectionData) return;
-
-    var title = section.querySelector(".section-head h2");
-
-    if (title) {
-      title.textContent = sectionData.title;
-    }
-
-    var note = section.querySelector(".section-note");
-
-    if (note && sectionData.note) {
-      note.textContent = sectionData.note;
-    }
-
-    var dishes = section.querySelectorAll(".dish");
-
-    dishes.forEach(function (dish, index) {
-      var data = sectionData.dishes[index];
-
-      if (!data) return;
-
-      var name = dish.querySelector(".dish-name");
-      var desc = dish.querySelector(".dish-desc");
-
-      if (name) {
-        name.textContent = data[0];
-      }
-
-      if (desc && data[1] !== undefined) {
-        desc.textContent = data[1];
-      }
-    });
-  }
-
-
-  // ============================================================
-  // TRANSLATE ALLERGEN TITLES
+  // ALLERGENS
   // ============================================================
 
   function translateAllergenTitles(lang) {
     var allergens = document.querySelectorAll(".allergens");
+    var names = translations[lang].allergens.items;
 
     allergens.forEach(function (element) {
       var numbers = element.textContent
@@ -585,32 +542,27 @@
         })
         .filter(Boolean);
 
-      var names = numbers.map(function (number) {
+      var translatedNames = numbers.map(function (number) {
         var index = parseInt(number, 10) - 1;
-        return allergenNames[lang][index] || number;
+        return names[index] || number;
       });
 
-      element.setAttribute(
-        "title",
-        (lang === "es" ? "Alérgenos: " : "Allergens: ") + names.join(", ")
-      );
+      element.title =
+        (lang === "es" ? "Alérgenos: " : "Allergens: ") +
+        translatedNames.join(", ");
     });
   }
 
-
-  // ============================================================
-  // TRANSLATE ALLERGEN LEGEND
-  // ============================================================
 
   function translateAllergenLegend(lang) {
     var legend = document.querySelector(".allergen-legend");
 
     if (!legend) return;
 
-    var data = translations[lang].allergenLegend;
+    var data = translations[lang].allergens;
 
     var title = legend.querySelector("h3");
-    var intro = legend.querySelector("p");
+    var paragraphs = legend.querySelectorAll(":scope > p");
     var items = legend.querySelectorAll(".legend-list li");
     var footnote = legend.querySelector(".menu-footnote");
 
@@ -618,8 +570,8 @@
       title.textContent = data.title;
     }
 
-    if (intro) {
-      intro.textContent = data.intro;
+    if (paragraphs[0]) {
+      paragraphs[0].textContent = data.intro;
     }
 
     items.forEach(function (item, index) {
@@ -627,7 +579,7 @@
 
       if (!number || !data.items[index]) return;
 
-      item.textContent = "";
+      item.innerHTML = "";
 
       item.appendChild(number);
       item.appendChild(
@@ -638,6 +590,48 @@
     if (footnote) {
       footnote.textContent = data.footnote;
     }
+  }
+
+
+  // ============================================================
+  // TRANSLATE SECTION
+  // ============================================================
+
+  function translateSection(sectionId, data) {
+    var section = document.getElementById(sectionId);
+
+    if (!section || !data) return;
+
+    var title = section.querySelector(".section-head h2");
+
+    if (title) {
+      title.textContent = data.title;
+    }
+
+    var note = section.querySelector(".section-note");
+
+    if (note && data.note) {
+      note.textContent = data.note;
+    }
+
+    var dishes = section.querySelectorAll(".dish");
+
+    dishes.forEach(function (dish, index) {
+      var dishData = data.dishes[index];
+
+      if (!dishData) return;
+
+      var name = dish.querySelector(".dish-name");
+      var desc = dish.querySelector(".dish-desc");
+
+      if (name) {
+        name.textContent = dishData[0];
+      }
+
+      if (desc) {
+        desc.textContent = dishData[1];
+      }
+    });
   }
 
 
@@ -656,7 +650,7 @@
     var note = section.querySelector(".section-note");
     var steps = section.querySelectorAll(".builder-step");
     var chips = section.querySelectorAll(".chip b");
-    var sauceItems = section.querySelectorAll(".sauce-item");
+    var sauces = section.querySelectorAll(".sauce-item");
 
     if (title) {
       title.textContent = data.title;
@@ -667,47 +661,48 @@
     }
 
     if (steps[0]) {
-      var step1Title = steps[0].querySelector("h3");
+      var step1 = steps[0].querySelector("h3");
 
-      if (step1Title) {
-        step1Title.textContent = data.step1;
+      if (step1) {
+        step1.textContent = data.step1;
       }
     }
 
     if (steps[1]) {
-      var step2Title = steps[1].querySelector("h3");
+      var step2 = steps[1].querySelector("h3");
 
-      if (step2Title) {
-        step2Title.textContent = data.step2;
+      if (step2) {
+        step2.textContent = data.step2;
       }
     }
 
     chips.forEach(function (chip, index) {
-      if (!data.pastas[index]) return;
-      chip.textContent = data.pastas[index];
+      if (data.pastas[index]) {
+        chip.textContent = data.pastas[index];
+      }
     });
 
-    sauceItems.forEach(function (item, index) {
-      var dataItem = data.sauces[index];
+    sauces.forEach(function (item, index) {
+      var sauce = data.sauces[index];
 
-      if (!dataItem) return;
+      if (!sauce) return;
 
-      var bold = item.querySelector("b");
+      var name = item.querySelector("b");
       var description = item.querySelector("span");
 
-      if (bold) {
-        bold.textContent = dataItem[0];
+      if (name) {
+        name.textContent = sauce[0];
       }
 
       if (description) {
-        description.textContent = dataItem[1];
+        description.textContent = sauce[1];
       }
     });
   }
 
 
   // ============================================================
-  // APPLY LANGUAGE
+  // SET LANGUAGE
   // ============================================================
 
   function setLanguage(lang) {
@@ -719,28 +714,28 @@
 
     document.documentElement.lang = lang;
 
+
     // ----------------------------------------------------------
     // Language buttons
     // ----------------------------------------------------------
 
-    var languageButtons = document.querySelectorAll(".lang-btn");
-
-    languageButtons.forEach(function (button) {
+    document.querySelectorAll(".lang-btn").forEach(function (button) {
       var buttonLang = button.getAttribute("data-lang");
       var active = buttonLang === lang;
 
       button.classList.toggle("active", active);
-      button.setAttribute("aria-pressed", active ? "true" : "false");
+      button.setAttribute(
+        "aria-pressed",
+        active ? "true" : "false"
+      );
     });
 
 
     // ----------------------------------------------------------
-    // Category navigation
+    // Navigation
     // ----------------------------------------------------------
 
-    var pills = document.querySelectorAll(".cat-pill");
-
-    pills.forEach(function (pill, index) {
+    document.querySelectorAll(".cat-pill").forEach(function (pill, index) {
       if (data.nav[index]) {
         pill.textContent = data.nav[index];
       }
@@ -748,49 +743,30 @@
 
 
     // ----------------------------------------------------------
-    // Header / buttons
+    // Header
     // ----------------------------------------------------------
 
-    var callButton = document.querySelector(".call-btn");
+    var callLabel = document.querySelector(".call-label");
 
-    if (callButton) {
-      callButton.lastChild.textContent = " " + data.buttons.call;
+    if (callLabel) {
+      callLabel.textContent = data.buttons.call;
     }
 
-    var primaryButton = document.querySelector(".hero-actions .btn-primary");
 
-    if (primaryButton) {
-      primaryButton.textContent = data.buttons.viewMenu;
+    // ----------------------------------------------------------
+    // Hero buttons
+    // ----------------------------------------------------------
+
+    var heroPrimary = document.querySelector(".hero-actions .btn-primary");
+
+    if (heroPrimary) {
+      heroPrimary.textContent = data.buttons.viewMenu;
     }
 
-    var heroGhostButton = document.querySelector(".hero-actions .btn-ghost");
+    var heroGhost = document.querySelector(".hero-actions .btn-ghost");
 
-    if (heroGhostButton) {
-      heroGhostButton.textContent = data.buttons.callNow;
-    }
-
-    var infoPrimaryButton = document.querySelector(".info-actions .btn-primary");
-
-    if (infoPrimaryButton) {
-      infoPrimaryButton.textContent = data.buttons.reserve;
-    }
-
-    var infoGhostButton = document.querySelector(".info-actions .btn-ghost");
-
-    if (infoGhostButton) {
-      infoGhostButton.textContent = data.buttons.directions;
-    }
-
-    var mobileCall = document.querySelector(".mobile-cta .cta-call");
-
-    if (mobileCall) {
-      mobileCall.textContent = data.buttons.call;
-    }
-
-    var mobileMap = document.querySelector(".mobile-cta .cta-map");
-
-    if (mobileMap) {
-      mobileMap.textContent = data.buttons.directions;
+    if (heroGhost) {
+      heroGhost.textContent = data.buttons.callNow;
     }
 
 
@@ -828,11 +804,14 @@
 
 
     // ----------------------------------------------------------
-    // Menu sections
+    // Menu
     // ----------------------------------------------------------
 
     Object.keys(data.sections).forEach(function (sectionId) {
-      translateSection(sectionId, data.sections[sectionId]);
+      translateSection(
+        sectionId,
+        data.sections[sectionId]
+      );
     });
 
 
@@ -851,11 +830,13 @@
     var comboText = document.querySelector(".combo-text p");
 
     if (comboTitle) {
-      comboTitle.textContent = data.sections.hamburguesas.comboTitle;
+      comboTitle.textContent =
+        data.sections.hamburguesas.comboTitle;
     }
 
     if (comboText) {
-      comboText.textContent = data.sections.hamburguesas.comboText;
+      comboText.textContent =
+        data.sections.hamburguesas.comboText;
     }
 
 
@@ -868,31 +849,32 @@
 
 
     // ----------------------------------------------------------
-    // Info section
+    // Info
     // ----------------------------------------------------------
 
     var info = document.querySelector(".info");
 
     if (info) {
       var infoTitle = info.querySelector("h2");
-      var infoBlocks = info.querySelectorAll(".info-block");
+
+      var blocks = info.querySelectorAll(".info-block");
 
       if (infoTitle) {
         infoTitle.textContent = data.info.title;
       }
 
-      if (infoBlocks[0]) {
-        var phoneTitle = infoBlocks[0].querySelector("h3");
+      if (blocks[0]) {
+        var phoneTitle = blocks[0].querySelector("h3");
 
         if (phoneTitle) {
           phoneTitle.textContent = data.info.phone;
         }
       }
 
-      if (infoBlocks[1]) {
-        var hoursTitle = infoBlocks[1].querySelector("h3");
-        var days = infoBlocks[1].querySelector(".hours-days");
-        var rows = infoBlocks[1].querySelectorAll(".hours-row");
+      if (blocks[1]) {
+        var hoursTitle = blocks[1].querySelector("h3");
+        var days = blocks[1].querySelector(".hours-days");
+        var rows = blocks[1].querySelectorAll(".hours-row");
 
         if (hoursTitle) {
           hoursTitle.textContent = data.info.hours;
@@ -903,18 +885,18 @@
         }
 
         if (rows[0]) {
-          var morningLabel = rows[0].querySelector("span:first-child");
+          var morning = rows[0].querySelector("span:first-child");
 
-          if (morningLabel) {
-            morningLabel.textContent = data.info.mornings;
+          if (morning) {
+            morning.textContent = data.info.mornings;
           }
         }
 
         if (rows[1]) {
-          var afternoonLabel = rows[1].querySelector("span:first-child");
+          var afternoon = rows[1].querySelector("span:first-child");
 
-          if (afternoonLabel) {
-            afternoonLabel.textContent = data.info.afternoons;
+          if (afternoon) {
+            afternoon.textContent = data.info.afternoons;
           }
         }
       }
@@ -922,29 +904,40 @@
 
 
     // ----------------------------------------------------------
-    // Footer
+    // Info buttons
     // ----------------------------------------------------------
 
-    var footerParagraphs = document.querySelectorAll(".site-footer p");
+    var reserveButton =
+      document.querySelector(".info-actions .btn-primary");
 
-    if (footerParagraphs[0]) {
-      var strong = footerParagraphs[0].querySelector("strong");
-
-      if (strong) {
-        strong.textContent = "Bello Rincón";
-      }
-
-      // Rebuild footer text so the translated category names appear.
-      footerParagraphs[0].innerHTML =
-        "<strong>Bello Rincón</strong> — " + data.footer;
+    if (reserveButton) {
+      reserveButton.textContent = data.buttons.reserve;
     }
 
-    if (footerParagraphs[1]) {
-      footerParagraphs[1].innerHTML =
-        "© <span id=\"year\">" +
-        new Date().getFullYear() +
-        "</span> Bello Rincón. " +
-        data.rights;
+    var directionsButton =
+      document.querySelector(".info-actions .btn-ghost");
+
+    if (directionsButton) {
+      directionsButton.textContent = data.buttons.directions;
+    }
+
+
+    // ----------------------------------------------------------
+    // Mobile buttons
+    // ----------------------------------------------------------
+
+    var mobileCall =
+      document.querySelector(".mobile-cta .cta-call");
+
+    if (mobileCall) {
+      mobileCall.textContent = data.buttons.call;
+    }
+
+    var mobileMap =
+      document.querySelector(".mobile-cta .cta-map");
+
+    if (mobileMap) {
+      mobileMap.textContent = data.buttons.directions;
     }
 
 
@@ -952,49 +945,88 @@
     // Accessibility
     // ----------------------------------------------------------
 
-    var skipLink = document.querySelector(".visually-hidden");
+    var skipLink =
+      document.querySelector(".visually-hidden");
 
     if (skipLink) {
       skipLink.textContent =
-        lang === "es" ? "Ir a la carta" : "Go to menu";
+        lang === "es"
+          ? "Ir a la carta"
+          : "Go to menu";
     }
 
-    var categoryNav = document.querySelector(".category-nav");
+    var categoryNav =
+      document.querySelector(".category-nav");
 
     if (categoryNav) {
       categoryNav.setAttribute(
         "aria-label",
-        lang === "es" ? "Categorías de la carta" : "Menu categories"
+        lang === "es"
+          ? "Categorías de la carta"
+          : "Menu categories"
       );
     }
 
 
     // ----------------------------------------------------------
-    // Page title / description
+    // Footer
+    // ----------------------------------------------------------
+
+    var footer = document.querySelector(".site-footer");
+
+    if (footer) {
+      var footerParagraphs =
+        footer.querySelectorAll("p");
+
+      if (footerParagraphs[0]) {
+        footerParagraphs[0].innerHTML =
+          "<strong>Bello Rincón</strong> — " +
+          data.footer;
+      }
+
+      if (footerParagraphs[1]) {
+        footerParagraphs[1].innerHTML =
+          "© <span id=\"year\">" +
+          new Date().getFullYear() +
+          "</span> Bello Rincón. " +
+          data.rights;
+      }
+    }
+
+
+    // ----------------------------------------------------------
+    // Page metadata
     // ----------------------------------------------------------
 
     if (lang === "es") {
-      document.title = "Bello Rincón — Bar, Cafetería, Tapería y Pizzeria";
 
-      var metaDescriptionES = document.querySelector(
-        'meta[name="description"]'
-      );
+      document.title =
+        "Bello Rincón — Bar, Cafetería, Tapería y Pizzeria";
 
-      if (metaDescriptionES) {
-        metaDescriptionES.setAttribute(
+      var descriptionES =
+        document.querySelector(
+          'meta[name="description"]'
+        );
+
+      if (descriptionES) {
+        descriptionES.setAttribute(
           "content",
           "Bello Rincón: bar, cafetería, tapería y pizzeria. Pizzas al horno, pasta italiana, hamburguesas, tapas y mucho más. Consulta la carta completa y llama para reservar."
         );
       }
+
     } else {
-      document.title = "Bello Rincón — Bar, Café, Tapas & Pizzeria";
 
-      var metaDescriptionEN = document.querySelector(
-        'meta[name="description"]'
-      );
+      document.title =
+        "Bello Rincón — Bar, Café, Tapas & Pizzeria";
 
-      if (metaDescriptionEN) {
-        metaDescriptionEN.setAttribute(
+      var descriptionEN =
+        document.querySelector(
+          'meta[name="description"]'
+        );
+
+      if (descriptionEN) {
+        descriptionEN.setAttribute(
           "content",
           "Bello Rincón: bar, café, tapas and pizzeria. Oven-baked pizzas, Italian pasta, burgers, tapas and much more. Check our full menu and call to reserve."
         );
@@ -1003,28 +1035,40 @@
 
 
     // ----------------------------------------------------------
-    // Save preference
+    // Save language
     // ----------------------------------------------------------
 
     try {
-      localStorage.setItem("belloRinconLanguage", lang);
+      localStorage.setItem(
+        "belloRinconLanguage",
+        lang
+      );
     } catch (error) {
       // Ignore localStorage errors.
     }
+
+
+    updateYear();
   }
 
 
   // ============================================================
-  // LANGUAGE SWITCH EVENTS
+  // LANGUAGE BUTTON EVENTS
   // ============================================================
 
-  var languageButtons = document.querySelectorAll(".lang-btn");
+  document.querySelectorAll(".lang-btn").forEach(function (button) {
 
-  languageButtons.forEach(function (button) {
     button.addEventListener("click", function () {
-      var lang = button.getAttribute("data-lang");
-      setLanguage(lang);
+
+      var lang =
+        button.getAttribute("data-lang");
+
+      if (lang === "es" || lang === "en") {
+        setLanguage(lang);
+      }
+
     });
+
   });
 
 
@@ -1032,62 +1076,90 @@
   // INITIAL LANGUAGE
   // ============================================================
 
-  var savedLanguage = "es";
+  var initialLanguage = "es";
 
   try {
-    var storedLanguage = localStorage.getItem("belloRinconLanguage");
+    var savedLanguage =
+      localStorage.getItem(
+        "belloRinconLanguage"
+      );
 
-    if (storedLanguage === "es" || storedLanguage === "en") {
-      savedLanguage = storedLanguage;
+    if (
+      savedLanguage === "es" ||
+      savedLanguage === "en"
+    ) {
+      initialLanguage = savedLanguage;
     }
+
   } catch (error) {
-    // Default to Spanish.
+    initialLanguage = "es";
   }
 
-  setLanguage(savedLanguage);
+  setLanguage(initialLanguage);
 
 
   // ============================================================
   // ACTIVE CATEGORY PILL WHILE SCROLLING
-  // Synced with IntersectionObserver
   // ============================================================
 
-  var sections = Array.prototype.slice.call(
-    document.querySelectorAll(".menu-section[id]")
-  );
+  var sections =
+    Array.prototype.slice.call(
+      document.querySelectorAll(
+        ".menu-section[id]"
+      )
+    );
 
-  var pills = Array.prototype.slice.call(
-    document.querySelectorAll(".cat-pill")
-  );
+  var pills =
+    Array.prototype.slice.call(
+      document.querySelectorAll(".cat-pill")
+    );
 
-  var track = document.getElementById("categoryTrack");
+  var track =
+    document.getElementById(
+      "categoryTrack"
+    );
+
 
   if (
     sections.length &&
     pills.length &&
     "IntersectionObserver" in window
   ) {
+
     var pillById = {};
 
     pills.forEach(function (pill) {
-      var id = pill.getAttribute("href").replace("#", "");
+
+      var id =
+        pill.getAttribute("href")
+          .replace("#", "");
+
       pillById[id] = pill;
+
     });
 
+
     var setActive = function (id) {
-      pills.forEach(function (p) {
-        p.classList.remove("is-active");
+
+      pills.forEach(function (pill) {
+        pill.classList.remove("is-active");
       });
 
-      var active = pillById[id];
+      var active =
+        pillById[id];
 
       if (!active) return;
 
       active.classList.add("is-active");
 
+
       if (track) {
-        var trackRect = track.getBoundingClientRect();
-        var pillRect = active.getBoundingClientRect();
+
+        var trackRect =
+          track.getBoundingClientRect();
+
+        var pillRect =
+          active.getBoundingClientRect();
 
         var offset =
           pillRect.left -
@@ -1099,28 +1171,43 @@
           left: offset,
           behavior: "smooth"
         });
+
       }
+
     };
+
 
     var headerOffset = 120;
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin:
-          "-" + headerOffset + "px 0px -65% 0px",
-        threshold: 0
-      }
-    );
+
+    var observer =
+      new IntersectionObserver(
+        function (entries) {
+
+          entries.forEach(function (entry) {
+
+            if (entry.isIntersecting) {
+              setActive(entry.target.id);
+            }
+
+          });
+
+        },
+        {
+          rootMargin:
+            "-" +
+            headerOffset +
+            "px 0px -65% 0px",
+
+          threshold: 0
+        }
+      );
+
 
     sections.forEach(function (section) {
       observer.observe(section);
     });
+
   }
+
 })();
