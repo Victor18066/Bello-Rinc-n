@@ -352,12 +352,13 @@ button:focus-visible{
 
 .hero-tag{
   color:#e7ddc4;
-  font-size:1.6rem;
+  font-size:1.2rem;
   max-width:40ch;
   margin:0 auto;
   opacity:0;
   animation:hero-fade-in .7s ease-out 1.15s forwards;
-  font-family:"Seramonde Trial", var(--font-body);
+  font-family: var(--font-body);
+  /*font-family:"Seramonde Trial", var(--font-body);*/
 }
 
 .hero-actions{
@@ -1115,6 +1116,19 @@ button:focus-visible{
     gap: 16px;
   }
 
+   @media (max-width: 640px){
+     .hero{
+       padding: 20px 16px 48px;
+     }
+     .hero-logo{
+       width: min(85%, 300px);
+     }
+     .hero-tag{
+       font-size: 1.05rem;
+       max-width: 32ch;
+     }
+   }
+
   .almuerzos-title{
     justify-content: center;
   }
@@ -1128,99 +1142,4 @@ button:focus-visible{
      width: auto;
      flex-basis: auto;
    }
-}
-
-
-/* =========================================================
-   PÁGINAS LEGALES (Aviso legal / Política de privacidad)
-   ========================================================= */
-
-.legal-page{
-  padding:40px 20px 70px;
-}
-
-.legal-page .container{
-  max-width:720px;
-}
-
-.back-link{
-  display:inline-flex;
-  align-items:center;
-  gap:.35rem;
-  color:var(--gold);
-  font-size:.85rem;
-  font-weight:600;
-  margin-bottom:22px;
-}
-
-.back-link:hover{
-  color:var(--text);
-}
-
-.legal-page h1{
-  font-size:1.9rem;
-  margin-bottom:.25em;
-}
-
-.legal-updated{
-  color:var(--text-soft);
-  font-size:.85rem;
-  margin:0 0 2rem;
-}
-
-.legal-page h2{
-  font-family:var(--font-display);
-  color:var(--gold);
-  font-size:1.2rem;
-  margin:2.1rem 0 .6rem;
-}
-
-.legal-page p,
-.legal-page li{
-  color:var(--text);
-  margin:0 0 1rem;
-}
-
-.legal-page ul{
-  padding-left:1.2rem;
-  margin:0 0 1rem;
-}
-
-.legal-page a.inline-link{
-  color:var(--gold);
-  text-decoration:underline;
-  text-underline-offset:2px;
-}
-
-.legal-page a.inline-link:hover{
-  color:var(--text);
-}
-
-.legal-placeholder{
-  background:var(--cream-2);
-  border:1px dashed var(--line);
-  border-radius:5px;
-  padding:1px 7px;
-  color:var(--text-soft);
-  font-style:italic;
-  white-space:nowrap;
-}
-
-.footer-links{
-  margin:6px 0 0;
-}
-
-.footer-links a{
-  color:var(--gold-bright);
-  text-decoration:underline;
-  text-underline-offset:2px;
-}
-
-.footer-links a:hover{
-  color:#fff;
-}
-
-.footer-links .sep{
-  margin:0 .5rem;
-  color:#5c5340;
 }

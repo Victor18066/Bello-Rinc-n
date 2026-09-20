@@ -36,7 +36,7 @@
       ],
 
       heroTag:
-        "Nacemos en Benetússer con el objetivo de convertirnos en el punto de encuentro de familias, amigos y amantes del buen comer. Creemos que una pizza, una comida, unas tapas o unos buenos bocatas, no solo se cocinan, se comparten. Por eso, en nuestro local cada detalle está pensado para que te sientas como en casa, ya sea disfrutando de un almuerzo, de una comida, de un tardeo con amigos o una cena familiar o con amigos cualquier día de la semana, o recogiendo tu pedido recién salido del horno para disfrutarlo en casa. Contamos con una magnífica y tranquila terraza en la calle. Sobre todo te ofrecemos cercanía y buen ambiente, además de buenos y ricos llantares que disfrutar en tus mejores momentos. Seguro que volverás.",
+        "Nacemos en Benetússer para ser el punto de encuentro de familias, amigos y amantes del buen comer. Una pizza, unas tapas o un buen bocata no solo se cocinan, se comparten. Por eso cuidamos cada detalle para que te sientas como en casa, en la mesa o en nuestra tranquila terraza en la calle. Cercanía, buen ambiente y buena comida en tus mejores momentos. Seguro que volverás.",
 
       heroLogoAlt:
         "Bello Rincón — Bar, Cafetería, Tapería, Pizzeria",
@@ -295,12 +295,7 @@
         "Bar · Cafetería · Tapería · Pizzeria",
 
       rights:
-        "Todos los derechos reservados.",
-
-      footerLinks: {
-        legal: "Aviso legal",
-        privacy: "Política de privacidad"
-      }
+        "Todos los derechos reservados."
     },
 
 
@@ -321,7 +316,7 @@
       ],
 
       heroTag:
-        "We opened in Benetússer with the aim of becoming a meeting place for families, friends and lovers of good food. We believe that a pizza, a meal, some tapas or a good sandwich are not only cooked, they are meant to be shared. That is why every detail of our restaurant is designed to make you feel at home, whether you are enjoying a late breakfast, lunch, an afternoon with friends, a family dinner or a dinner with friends any day of the week, or picking up your freshly baked order to enjoy at home. We also have a wonderful and peaceful outdoor terrace. Above all, we offer a friendly atmosphere and delicious food to enjoy during your best moments. We are sure you will come back.",
+        "We were born in Benetússer to be a gathering place for families, friends, and lovers of good food. A pizza, some tapas, or a delicious bocata aren’t just cooked—they’re shared. That’s why we pay attention to every detail so you feel right at home, whether at the table or on our peaceful street-side terrace. A warm, welcoming atmosphere and great food for your best moments. You’ll definitely be back.",
 
       heroLogoAlt:
         "Bello Rincón — Bar, Café, Tapas & Pizzeria",
@@ -522,7 +517,7 @@
       },
 
       almuerzos: {
-        title: "Breakfast",
+        title: "Almuerzos",
         time: "From 09:00 to 12:00",
         entero: "Full",
         medio: "Half"
@@ -580,12 +575,7 @@
         "Bar · Café · Tapas · Pizzeria",
 
       rights:
-        "All rights reserved.",
-
-      footerLinks: {
-        legal: "Legal notice",
-        privacy: "Privacy policy"
-      }
+        "All rights reserved."
     }
   };
 
@@ -1091,21 +1081,6 @@
           new Date().getFullYear() +
           "</span> Bello Rincón. " +
           data.rights;
-      }
-
-      var legalLink = footer.querySelector(
-        '.footer-links a[href="aviso-legal.html"]'
-      );
-      var privacyLink = footer.querySelector(
-        '.footer-links a[href="politica-privacidad.html"]'
-      );
-
-      if (legalLink && data.footerLinks) {
-        legalLink.textContent = data.footerLinks.legal;
-      }
-
-      if (privacyLink && data.footerLinks) {
-        privacyLink.textContent = data.footerLinks.privacy;
       }
     }
 
