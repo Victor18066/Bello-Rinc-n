@@ -31,7 +31,8 @@
         "Bocadillos",
         "Combinados",
         "Sandwiches",
-        "Postres"
+        "Postres",
+        "Bebidas"
       ],
 
       heroTag:
@@ -213,6 +214,25 @@
             ["Profiteroles de nata", ""],
             ["Tarta del día", ""]
           ]
+        },
+
+        bebidas: {
+          title: "Bebidas",
+          dishes: [
+            ["Coca Cola Normal", ""],
+            ["Coca Cola Zero", ""],
+            ["Cerveza", ""],
+            ["Agua grande", ""],
+            ["Agua pequeña", ""],
+            ["Fanta limón", ""],
+            ["Fanta naranja", ""],
+            ["Aquarius limón", ""],
+            ["Aquarius naranja", ""],
+            ["Trina", ""],
+            ["Nestea", ""],
+            ["Zumo de piña", ""],
+            ["Zumo de melocotón", ""]
+          ]
         }
       },
 
@@ -291,7 +311,8 @@
         "Baguette sandwiches",
         "Combination plates",
         "Sandwiches",
-        "Desserts"
+        "Desserts",
+        "Drinks"
       ],
 
       heroTag:
@@ -472,6 +493,25 @@
             ["Tiramisu", ""],
             ["Cream profiteroles", ""],
             ["Cake of the day", ""]
+          ]
+        },
+
+        bebidas: {
+          title: "Drinks",
+          dishes: [
+            ["Coke", ""],
+            ["Coke Zero", ""],
+            ["Beer", ""],
+            ["Large water", ""],
+            ["Small water", ""],
+            ["Lemon Fanta", ""],
+            ["Orange Fanta", ""],
+            ["Lemon Aquarius", ""],
+            ["Orange Aquarius", ""],
+            ["Trina", ""],
+            ["Nestea", ""],
+            ["Pineapple juice", ""],
+            ["Peach juice", ""]
           ]
         }
       },
