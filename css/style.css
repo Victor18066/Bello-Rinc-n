@@ -1055,10 +1055,12 @@ button:focus-visible{
   padding: 9px;
 }
 
-.almuerzos-icon svg{
+.almuerzos-icon svg,
+.almuerzos-icon img{
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: contain;
 }
 
 .almuerzos-title h2{
