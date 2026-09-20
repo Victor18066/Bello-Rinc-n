@@ -216,6 +216,13 @@
         }
       },
 
+      almuerzos: {
+        title: "Almuerzos",
+        time: "De 09:00 a 12:00",
+        entero: "Entero",
+        medio: "Medio"
+      },
+
       pasta: {
         title: "Pasta italiana",
         note: "Compón tu plato en dos pasos.",
@@ -467,6 +474,13 @@
             ["Cake of the day", ""]
           ]
         }
+      },
+
+      almuerzos: {
+        title: "Breakfast",
+        time: "From 09:00 to 12:00",
+        entero: "Full",
+        medio: "Half"
       },
 
       pasta: {
@@ -802,6 +816,43 @@
       introText.textContent = data.introText;
     }
 
+    // ----------------------------------------------------------
+    // Almuerzos
+    // ----------------------------------------------------------
+
+    var almuerzos = document.querySelector(".almuerzos");
+    
+    if (almuerzos) {
+      var almuerzosData = data.almuerzos;
+    
+      var almuerzosTitle =
+        almuerzos.querySelector(".almuerzos-title h2");
+    
+      var almuerzosTime =
+        almuerzos.querySelector(".almuerzos-time");
+    
+      var almuerzoEntero =
+        almuerzos.querySelector(".almuerzo-entero");
+    
+      var almuerzoMedio =
+        almuerzos.querySelector(".almuerzo-medio");
+    
+      if (almuerzosTitle) {
+        almuerzosTitle.textContent = almuerzosData.title;
+      }
+    
+      if (almuerzosTime) {
+        almuerzosTime.textContent = almuerzosData.time;
+      }
+    
+      if (almuerzoEntero) {
+        almuerzoEntero.textContent = almuerzosData.entero;
+      }
+    
+      if (almuerzoMedio) {
+        almuerzoMedio.textContent = almuerzosData.medio;
+      }
+    }
 
     // ----------------------------------------------------------
     // Menu
