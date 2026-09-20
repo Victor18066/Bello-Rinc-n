@@ -357,7 +357,7 @@ button:focus-visible{
   margin:0 auto;
   opacity:0;
   animation:hero-fade-in .7s ease-out 1.15s forwards;
-  font-family:"Seramonde Trial", var(--font-body);
+  /*font-family:"Seramonde Trial", var(--font-body);*/
 }
 
 .hero-actions{
