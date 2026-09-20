@@ -1013,3 +1013,109 @@ button:focus-visible{
     break-inside:avoid;
   }
 }
+
+/* =========================================================
+   ALMUERZOS
+   ========================================================= */
+
+.almuerzos{
+  padding: 18px 20px 10px;
+  background: var(--cream);
+}
+
+.almuerzos-card{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--cream-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.almuerzos-title{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.almuerzos-icon{
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--gold-bright);
+  font-size: 1.2rem;
+}
+
+.almuerzos-title h2{
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.almuerzos-time{
+  margin: 3px 0 0;
+  color: var(--text-soft);
+  font-size: .9rem;
+}
+
+.almuerzos-prices{
+  display: flex;
+  gap: 18px;
+  flex: none;
+}
+
+.almuerzo-price{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 75px;
+}
+
+.almuerzo-price span{
+  color: var(--text-soft);
+  font-size: .82rem;
+}
+
+.almuerzo-price strong{
+  margin-top: 2px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* INSTAGRAM */
+
+.instagram-link{
+  color: var(--gold-bright) !important;
+  font-weight: 700;
+  transition: color .15s ease;
+}
+
+.instagram-link:hover{
+  color: #fff !important;
+}
+
+@media (max-width: 520px){
+  .almuerzos-card{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .almuerzos-title{
+    justify-content: center;
+  }
+
+  .almuerzos-prices{
+    justify-content: center;
+  }
+}
