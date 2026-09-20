@@ -517,7 +517,7 @@
       },
 
       almuerzos: {
-        title: "Breakfast",
+        title: "Almuerzos",
         time: "From 09:00 to 12:00",
         entero: "Full",
         medio: "Half"
