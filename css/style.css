@@ -357,6 +357,7 @@ button:focus-visible{
   margin:0 auto;
   opacity:0;
   animation:hero-fade-in .7s ease-out 1.15s forwards;
+  font-family: var(--font-body);
   /*font-family:"Seramonde Trial", var(--font-body);*/
 }
 
@@ -1114,6 +1115,19 @@ button:focus-visible{
     align-items: stretch;
     gap: 16px;
   }
+
+   @media (max-width: 640px){
+     .hero{
+       padding: 20px 16px 48px;
+     }
+     .hero-logo{
+       width: min(85%, 300px);
+     }
+     .hero-tag{
+       font-size: 1.05rem;
+       max-width: 32ch;
+     }
+   }
 
   .almuerzos-title{
     justify-content: center;
