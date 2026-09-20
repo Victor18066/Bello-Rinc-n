@@ -299,7 +299,7 @@ button:focus-visible{
     var(--ink) 55%,
     #0e0c09 100%
   );
-  padding:64px 20px 70px;
+  padding:28px 20px 70px;
   text-align:center;
   overflow:hidden;
 }
