@@ -1043,16 +1043,22 @@ button:focus-visible{
 }
 
 .almuerzos-icon{
-  width: 42px;
-  height: 42px;
-  flex: none;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background: var(--ink);
   color: var(--gold-bright);
-  font-size: 1.2rem;
+  padding: 9px;
+}
+
+.almuerzos-icon svg{
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .almuerzos-title h2{
@@ -1118,4 +1124,11 @@ button:focus-visible{
   .almuerzos-prices{
     justify-content: center;
   }
+
+   .almuerzos-icon{
+     width: 56px;
+     height: 56px;
+     flex-basis: 56px;
+     padding: 9px;
+   }
 }
