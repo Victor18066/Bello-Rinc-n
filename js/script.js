@@ -236,6 +236,24 @@
         }
       },
 
+      promo: {
+        title: "Promoción de la semana",
+        cards: [
+          {
+            when: "De lunes a miércoles",
+            tagline: "",
+            desc: "Dos pizzas medianas + dos bebidas a elegir (refresco o cerveza) por comensal.",
+            price: "22 €"
+          },
+          {
+            when: "Todos los días de la semana",
+            tagline: "Aprovecha esta súper promoción. Para llevar a domicilio o recoger en el establecimiento.",
+            desc: "Tres pizzas medianas + bebida gratis: refrescos en formato de 2 L (Coca-Cola, Fanta, entre otros) o cerveza, tres latas de 33 cl.",
+            price: "32 €"
+          }
+        ]
+      },
+
       almuerzos: {
         title: "Almuerzos",
         time: "De 09:00 a 12:00",
@@ -514,6 +532,24 @@
             ["Peach juice", ""]
           ]
         }
+      },
+
+      promo: {
+        title: "Deal of the week",
+        cards: [
+          {
+            when: "Monday to Wednesday",
+            tagline: "",
+            desc: "Two medium pizzas + two drinks of your choice (soft drink or beer) per person.",
+            price: "€22"
+          },
+          {
+            when: "Every day of the week",
+            tagline: "Make the most of this super deal. Home delivery or pick-up at the restaurant.",
+            desc: "Three medium pizzas + a free drink: 2 L soft drinks (Coca-Cola, Fanta, among others) or beer, three 33 cl cans.",
+            price: "€32"
+          }
+        ]
       },
 
       almuerzos: {
@@ -854,6 +890,35 @@
 
     if (introText) {
       introText.textContent = data.introText;
+    }
+
+    // ----------------------------------------------------------
+    // Promoción de la semana
+    // ----------------------------------------------------------
+
+    var promoSection = document.querySelector(".promo");
+
+    if (promoSection && data.promo) {
+      var promoTitle = promoSection.querySelector(".promo-title");
+
+      if (promoTitle) {
+        promoTitle.textContent = data.promo.title;
+      }
+
+      promoSection.querySelectorAll(".promo-card").forEach(function (card, i) {
+        var c = data.promo.cards[i];
+        if (!c) return;
+
+        var when = card.querySelector(".promo-when");
+        var tag = card.querySelector(".promo-tagline");
+        var desc = card.querySelector(".promo-desc");
+        var price = card.querySelector(".promo-price");
+
+        if (when) when.textContent = c.when;
+        if (tag) tag.textContent = c.tagline;
+        if (desc) desc.textContent = c.desc;
+        if (price) price.textContent = c.price;
+      });
     }
 
     // ----------------------------------------------------------
